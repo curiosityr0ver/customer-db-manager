@@ -9,7 +9,7 @@ const db = mysql.createConnection({
     database: "customer",
     password: "admin"
 })
-
+//won't work without crud workaround you saw in youtube video
 app.use(express.json())
 app.use(cors())
 
@@ -34,7 +34,8 @@ app.get("/customers", (req, res) => {
 
 app.post("/customers", (req, res) => {
     const q = "INSERT INTO currentac (`accno`, `name`,  `email`, `gender`, `branch`, `balance`, `rating`) VALUES(?)"
-    const values = [2029, "nobita", "testD", "testLoda", "testBranch", 100, 3.5]
+    const body = req.body
+    const values = [body.accno, body.name, body.email, body.gender, body.branch, body.balance, body.rating]
     db.query(q, [values], (err, data) => {
         if (err) return err
         return data

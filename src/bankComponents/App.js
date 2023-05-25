@@ -15,16 +15,17 @@ export default function App() {
 
     const addCustomer = async () => {
 
-        const obj = {
-            name: "harambe",
-            email: "test@working.com",
-            gender: "male",
-            branch: "bhaad",
-            balance: 3000,
-            rating: 1.5
+        const values = {
+            "accno": 1 + rows[rows.length - 1].accno,
+            "name": "leono",
+            "email": "test@working.com",
+            "gender": "male",
+            "branch": "bhaad",
+            "balance": 2000,
+            "rating": 1.5
         }
 
-        const res = await axios.post("http://localhost:8800/customers", obj)
+        const res = await axios.post("http://localhost:8800/customers", values)
 
     }
 
