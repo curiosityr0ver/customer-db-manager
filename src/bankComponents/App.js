@@ -29,6 +29,15 @@ export default function App() {
 
     }
 
+    const delCustomer = async () => {
+
+        const values = [2010]
+        for (let value of values) {
+            const res = await axios.delete("http://localhost:8800/customers" + value);
+        }
+        window.location.reload()
+    }
+
     useEffect(() => {
 
         if (rows.length === 0) fetchCustomers()
@@ -43,7 +52,7 @@ export default function App() {
             <div id='currentTable'>
                 {rows.length !== 0 && <NiceTable rows={rows} />}
             </div>
-            <AddCustomer rows={rows} addCustomer={addCustomer} />
+            <AddCustomer rows={rows} addCustomer={addCustomer} delCustomer={delCustomer} />
 
         </div>
 

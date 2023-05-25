@@ -34,11 +34,27 @@ app.get("/customers", (req, res) => {
 
 app.post("/customers", (req, res) => {
     const q = "INSERT INTO currentac (`accno`, `name`,  `email`, `gender`, `branch`, `balance`, `rating`) VALUES(?)"
-    const body = req.body
+    const body = req.body;
     const values = [body.accno, body.name, body.email, body.gender, body.branch, body.balance, body.rating]
     db.query(q, [values], (err, data) => {
         if (err) return err
         return data
     })
-    console.log(res);
+})
+
+
+app.delete("/customers:accno", (req, res) => {
+    const accno = req.params.accno;
+    const q = "DELETE FROM currentac WHERE accno = ?";
+    db.query(q, [accno], (err, data) => {
+        if (err) return err
+        return res.json("sucessful")
+    })
+    // for (let i = 0; i < keys.length; i++) {
+    //     const q = "DELETE FROM currentac WHERE accno = " + keys[i]
+    //     db.query(q, (err, data) => {
+    //         if (err) return err
+    //         // return "data"
+    //     })
+    // }
 })

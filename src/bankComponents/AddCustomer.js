@@ -5,9 +5,14 @@ export default function AddCustomer(props) {
 
     const onClick = () => {
         props.addCustomer()
-        alert("pressed")
+    }
+    const onDel = () => {
+        props.delCustomer()
     }
     return (
-        <div><button className='btn btn-solid' onClick={onClick}>Add</button></div>
+        <div>
+            <button className='btn btn-solid' onClick={onClick}>Add</button>
+            <button className='btn btn-solid' onClick={onDel}>Del</button>
+        </div >
     )
 }
