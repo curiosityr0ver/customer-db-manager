@@ -17,7 +17,7 @@ export default function App() {
 
         const values = {
             "accno": 1 + rows[rows.length - 1].accno,
-            "name": "leono",
+            "name": "shah rukh",
             "email": "test@working.com",
             "gender": "male",
             "branch": "bhaad",
@@ -25,7 +25,15 @@ export default function App() {
             "rating": 1.5
         }
 
-        const res = await axios.post("http://localhost:8800/customers", values)
+        await axios.post("http://localhost:8800/customers", values).then((response) => {
+            console.log(response.data);
+        });
+
+
+        setTimeout(() => {
+            window.location.reload()
+        }, 100);
+
 
     }
 
@@ -33,9 +41,15 @@ export default function App() {
 
         const values = [2010]
         for (let value of values) {
-            const res = await axios.delete("http://localhost:8800/customers" + value);
+            await axios.delete("http://localhost:8800/customers" + value).then((response) => {
+                console.log(response.data);
+            });
+
         }
-        window.location.reload()
+
+        setTimeout(() => {
+            window.location.reload()
+        }, 100);
     }
 
     useEffect(() => {

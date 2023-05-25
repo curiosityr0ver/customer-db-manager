@@ -38,7 +38,7 @@ app.post("/customers", (req, res) => {
     const values = [body.accno, body.name, body.email, body.gender, body.branch, body.balance, body.rating]
     db.query(q, [values], (err, data) => {
         if (err) return err
-        return data
+        return res.json("successful")
     })
 })
 
