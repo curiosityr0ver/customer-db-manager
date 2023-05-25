@@ -33,10 +33,11 @@ app.get("/customers", (req, res) => {
 })
 
 app.post("/customers", (req, res) => {
-    const q = "INSERT INTO currentac (name,  email, gender, branch, balance, rating) VALUES(?)"
-    const values = ["testTitle", "testD", "testGender", "testBranch", "testBal", "testRating"]
+    const q = "INSERT INTO currentac (`accno`, `name`,  `email`, `gender`, `branch`, `balance`, `rating`) VALUES(?)"
+    const values = [2029, "nobita", "testD", "testLoda", "testBranch", 100, 3.5]
     db.query(q, [values], (err, data) => {
         if (err) return err
         return data
     })
+    console.log(res);
 })
