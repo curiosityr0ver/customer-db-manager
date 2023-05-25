@@ -37,9 +37,9 @@ export default function App() {
 
     }
 
-    const delCustomer = async () => {
+    const delCustomer = async (values) => {
 
-        const values = [2010]
+        // const values = [2010]
         for (let value of values) {
             await axios.delete("http://localhost:8800/customers" + value).then((response) => {
                 console.log(response.data);
@@ -64,7 +64,7 @@ export default function App() {
         <div>
             <NiceHeader />
             <div id='currentTable'>
-                {rows.length !== 0 && <NiceTable rows={rows} />}
+                <NiceTable rows={rows} delCustomer={delCustomer} />
             </div>
             <AddCustomer rows={rows} addCustomer={addCustomer} delCustomer={delCustomer} />
 

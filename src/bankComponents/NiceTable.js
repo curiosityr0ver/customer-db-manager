@@ -124,7 +124,10 @@ EnhancedTableHead.propTypes = {
 };
 
 function EnhancedTableToolbar(props) {
+
     const { numSelected } = props;
+
+
 
     return (
         <Toolbar
@@ -159,7 +162,7 @@ function EnhancedTableToolbar(props) {
 
             {numSelected > 0 ? (
                 <Tooltip title="Delete">
-                    <IconButton>
+                    <IconButton onClick={props.onClickDelete} >
                         <DeleteIcon />
                     </IconButton>
                 </Tooltip>
@@ -206,19 +209,23 @@ export default function EnhancedTable(props) {
 
     const handleSelectAllClick = (event) => {
         if (event.target.checked) {
-            const newSelected = rows.map((n) => n.name);
+            const newSelected = rows.map((n) => n.accno);
             setSelected(newSelected);
             return;
         }
         setSelected([]);
     };
 
-    const handleClick = (event, name) => {
-        const selectedIndex = selected.indexOf(name);
+    const onClickDelete = () => {
+        props.delCustomer(selected)
+    }
+
+    const handleClick = (event, accno) => {
+        const selectedIndex = selected.indexOf(accno);
         let newSelected = [];
 
         if (selectedIndex === -1) {
-            newSelected = newSelected.concat(selected, name);
+            newSelected = newSelected.concat(selected, accno);
         } else if (selectedIndex === 0) {
             newSelected = newSelected.concat(selected.slice(1));
         } else if (selectedIndex === selected.length - 1) {
@@ -246,7 +253,7 @@ export default function EnhancedTable(props) {
         setDense(event.target.checked);
     };
 
-    const isSelected = (name) => selected.indexOf(name) !== -1;
+    const isSelected = (accno) => selected.indexOf(accno) !== -1;
 
     // Avoid a layout jump when reaching the last page with empty rows.
     const emptyRows =
@@ -266,7 +273,7 @@ export default function EnhancedTable(props) {
             <div>
                 <Box sx={{ width: '100%' }}>
                     <Paper sx={{ width: '100%', mb: 2 }}>
-                        <EnhancedTableToolbar numSelected={selected.length} />
+                        <EnhancedTableToolbar numSelected={selected.length} selected={selected} onClickDelete={onClickDelete} />
                         <TableContainer>
                             <Table
                                 sx={{ minWidth: 750 }}
@@ -283,13 +290,13 @@ export default function EnhancedTable(props) {
                                 />
                                 <TableBody>
                                     {visibleRows.map((row, index) => {
-                                        const isItemSelected = isSelected(row.name);
+                                        const isItemSelected = isSelected(row.accno);
                                         const labelId = `enhanced-table-checkbox-${index}`;
 
                                         return (
                                             <TableRow
                                                 hover
-                                                onClick={(event) => handleClick(event, row.name)}
+                                                onClick={(event) => handleClick(event, row.accno)}
                                                 role="checkbox"
                                                 aria-checked={isItemSelected}
                                                 tabIndex={-1}

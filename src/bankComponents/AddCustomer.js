@@ -12,7 +12,6 @@ export default function AddCustomer(props) {
     return (
         <div>
             <button className='btn btn-solid' onClick={onClick}>Add</button>
-            <button className='btn btn-solid' onClick={onDel}>Del</button>
         </div >
     )
 }
