@@ -13,7 +13,7 @@ export default function PaymentForm({ custDetails, setCustDetails }) {
   return (
     <React.Fragment>
       <Grid container spacing={3}>
-        <Grid>
+        <Grid key={account}>
           <div onClick={() => { setAccount("Current") }} >
             <Banner type="Current" account={account} />
           </div>

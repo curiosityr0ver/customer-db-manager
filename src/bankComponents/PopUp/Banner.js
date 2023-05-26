@@ -24,7 +24,7 @@ export default function Banner({ type, account }) {
             )
         } else {
             return (
-                <img className='shadow' src={require('./Screenshot 2023-05-26 194131.png')} />
+                <img src={require('./Screenshot 2023-05-26 194131.png')} />
             )
         }
 
