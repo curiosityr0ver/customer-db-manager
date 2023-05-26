@@ -56,8 +56,7 @@ export default function Checkout({ addCustomer }) {
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
-    // console.log(activeStep)
-    // console.log(custDetails)
+    window.scrollTo(0, 0)
 
     const custJSobj = {
       name: firstName + " " + lastName,
@@ -90,9 +89,9 @@ export default function Checkout({ addCustomer }) {
     }
   }
 
-  // useEffect(() => {
-  //   console.log(custDetails)
-  // }, [custDetails])
+  useEffect(() => {
+    console.log(account)
+  }, [account])
 
 
 
@@ -111,9 +110,6 @@ export default function Checkout({ addCustomer }) {
       </AppBar>
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
-          <Typography component="h1" variant="h4" align="center">
-            Add Customer
-          </Typography>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (
               <Step key={label}>

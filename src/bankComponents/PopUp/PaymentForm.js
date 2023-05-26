@@ -1,9 +1,9 @@
 import * as React from 'react';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import { CheckboxToggle } from 'react-rainbow-components';
+import Banner from './Banner';
+
 
 export default function PaymentForm({ custDetails, setCustDetails }) {
 
@@ -12,10 +12,17 @@ export default function PaymentForm({ custDetails, setCustDetails }) {
 
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Account Configuration
-      </Typography>
       <Grid container spacing={3}>
+        <Grid>
+          <div onClick={() => { setAccount("Current") }} >
+            <Banner type="Current" account={account} />
+          </div>
+          <div onClick={() => { setAccount("Savings") }}>
+            <Banner type="Savings" account={account} />
+          </div>
+
+
+        </Grid>
         <Grid item xs={12} md={6}>
           <TextField
             required
@@ -28,16 +35,13 @@ export default function PaymentForm({ custDetails, setCustDetails }) {
             autoComplete="cc-number"
             variant="standard"
           />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <button onClick={setAccount("Current")}>
-            Current Account
-          </button>
-          <button onClick={setAccount("Savings")}>
-            Savings Account
-          </button>
+          <CheckboxToggle
+            label="Toggle Label"
+          // value={ }
+          // onChange={ }
+          />
         </Grid>
       </Grid>
-    </React.Fragment>
+    </React.Fragment >
   );
 }

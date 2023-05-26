@@ -23,7 +23,7 @@ export default function App() {
             "gender": data.gender,
             "branch": data.address2[1],
             "balance": data.balance,
-            "rating": 1.5
+            "rating": 3.5
         }
 
         await axios.post("http://localhost:8800/customers", values).then((response) => {
@@ -65,9 +65,11 @@ export default function App() {
         <div>
             <NiceHeader />
             <div id='currentTable'>
-                <NiceTable rows={rows} delCustomer={delCustomer} />
+                {/* <NiceTable rows={rows} delCustomer={delCustomer} /> */}
             </div>
             <PopUpAddCustomer addCustomer={addCustomer} />
+
+
         </div>
 
 
