@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import NiceTable from './NiceTable.js'
 import NiceHeader from './NiceHeader.js'
+import PopUpAddCustomer from './PopUp/PopUpAddCustomer.js'
 import AddCustomer from './AddCustomer.js'
 import './App.css'
 export default function App() {
@@ -13,15 +14,15 @@ export default function App() {
         setRows(res.data)
     }
 
-    const addCustomer = async () => {
-
+    const addCustomer = async (data) => {
+        console.log(data);
         const values = {
             "accno": 1 + rows[rows.length - 1].accno,
-            "name": "shah rukh",
-            "email": "test@working.com",
-            "gender": "male",
-            "branch": "bhaad",
-            "balance": 2000,
+            "name": data.name,
+            "email": data.email,
+            "gender": data.gender,
+            "branch": data.address2[1],
+            "balance": data.balance,
             "rating": 1.5
         }
 
@@ -59,15 +60,14 @@ export default function App() {
     }, [rows])
 
 
-
+    // enable mySQL from windows services
     return (
         <div>
             <NiceHeader />
             <div id='currentTable'>
                 <NiceTable rows={rows} delCustomer={delCustomer} />
             </div>
-            <AddCustomer rows={rows} addCustomer={addCustomer} delCustomer={delCustomer} />
-
+            <PopUpAddCustomer addCustomer={addCustomer} />
         </div>
 
 
