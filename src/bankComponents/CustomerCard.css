@@ -1,13 +1,9 @@
-body {
-    background-color: #f8f9fb;
-}
-
-h1,
-h3 {
+#h1,
+#h3 {
     margin: 15px 0px;
 }
 
-p {
+#p {
     height: 30px;
 }
 

@@ -56,13 +56,13 @@ export default function ActionAreaCard({ empid = 6, title = "Jose Leandro Torres
                 <div className='height'></div>
 
                 <center>
-                    <h1 className='font1'>
+                    <h1 id='h1' className='font1'>
                         {titles[empid]}
                     </h1>
-                    <h3 className='font2'>
+                    <h3 id='h3' className='font2'>
                         {positions[empid]}
                     </h3>
-                    <p className='font3'>
+                    <p id='p' className='font3'>
                         {descriptions[empid]}
                     </p>
                 </center>
