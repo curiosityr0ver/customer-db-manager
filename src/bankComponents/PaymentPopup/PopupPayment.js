@@ -21,7 +21,7 @@ export default function AlertDialog({ makePayment }) {
     return (
         <div>
             <Button variant="outlined" onClick={handleClickOpen}>
-                Add Account
+                Transfer
             </Button>
             <Dialog
                 open={open}
