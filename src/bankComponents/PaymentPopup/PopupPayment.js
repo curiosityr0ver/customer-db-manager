@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Button } from 'react-rainbow-components';
 import Dialog from '@mui/material/Dialog';
-import PaymentForm from './PaymentForm.js'
+import PaymentCheckout from './PaymentCheckout'
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import '../App.css'
-export default function AlertDialog({ addCustomer }) {
+export default function AlertDialog({ makePayment }) {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -34,7 +34,7 @@ export default function AlertDialog({ addCustomer }) {
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        <PaymentForm />
+                        <PaymentCheckout makePayment={makePayment} />
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>

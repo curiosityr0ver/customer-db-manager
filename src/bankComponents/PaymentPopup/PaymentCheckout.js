@@ -12,8 +12,8 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AltAddress from './AltAddress.js';
+import PaymentReview from './PaymentReview.js'
 import { useState, useEffect } from 'react';
-import Review from './PopUp/Review.js'
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -33,39 +33,19 @@ const steps = ['Make Paymenrt', 'Transaction Details'];
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Checkout({ addCustomer }) {
+export default function Checkout({ makePayment }) {
   const [activeStep, setActiveStep] = React.useState(0);
-  const [firstName, setFirstName] = useState()
-  const [lastName, setLastName] = useState()
-  const [address, setAddress] = useState()
-  const [dob, setDob] = useState()
-  const [province, setProvince] = useState()
-  const [zip, setZip] = useState()
-  const [country, setCountry] = useState()
-  const [gender, setGender] = useState()
-  const [balance, setBalance] = useState()
-  const [account, setAccount] = useState()
-  const [email, setEmail] = useState()
-
-
-  const custDetails = [firstName, lastName, address, dob, province, zip, country, gender, balance, account, email]
-  const setCustDetails = [setFirstName, setLastName, setAddress, setDob, setProvince, setZip, setCountry, setGender, setBalance, setAccount, setEmail]
+  const [senderAcc, setSenderAcc] = useState();
+  const [receiverAcc, setReceiverAcc] = useState();
+  const [mode, setMode] = useState()
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
     window.scrollTo(0, 0)
 
-    const custJSobj = {
-      name: firstName + " " + lastName,
-      email: email,
-      address2: [address, province, country.label, zip],
-      dob: dob.toLocaleString().split(',')[0],
-      gender: gender.label == "Male" ? "male" : "female",
-      balance: balance,
-      account: account
-    }
     if (activeStep == 2) {
-      addCustomer(custJSobj)
+      //modify
+      (makePayment())
     }
   };
 
@@ -77,18 +57,12 @@ export default function Checkout({ addCustomer }) {
     switch (step) {
       case 0:
         return <AltAddress />;
-      case 2:
-        return <Review custDetails={custDetails} />;
+      case 1:
+        return <PaymentReview />;
       default:
         throw new Error('Unknown step');
     }
   }
-
-  useEffect(() => {
-    console.log(account)
-  }, [account])
-
-
 
   return (
     <ThemeProvider theme={defaultTheme}>

@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AddressForm from './AddressForm';
 import AccountSelector from './AccountSelecter.js'
-import Review from './Review';
+import Review from '../PaymentPopup/PaymentReview';
 import { useState, useEffect } from 'react';
 
 function Copyright() {

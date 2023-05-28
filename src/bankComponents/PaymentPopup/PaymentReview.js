@@ -42,11 +42,6 @@ const payments = [
 
 export default function Review({ custDetails }) {
 
-  useEffect(() => {
-    // console.log(custDetails[3].toLocaleString().split(',')[0]);
-
-  }, [])
-
 
   return (
     <React.Fragment>
@@ -55,17 +50,17 @@ export default function Review({ custDetails }) {
       </Typography>
       <List disablePadding>
         <ListItem sx={{ py: 1, px: 0 }}>
-          <ListItemText primary={"Name"} secondary={custDetails[0] + " " + custDetails[1]} />
+          {/* <ListItemText primary={"Name"} secondary={custDetails[0] + " " + custDetails[1]} /> */}
         </ListItem>
         <ListItem sx={{ py: 1, px: 0 }}>
-          <DatePicker disabled value={custDetails[3]} label="Date Of Birth" />
+          {/* <DatePicker disabled value={custDetails[3]} label="Date Of Birth" /> */}
         </ListItem>
         <ListItem sx={{ py: 1, px: 0 }}>
-          <ListItemText primary={"Address"} secondary={custDetails[2]} />
+          {/* <ListItemText primary={"Address"} secondary={custDetails[2]} /> */}
         </ListItem>
         <ListItem sx={{ py: 1, px: 0 }}>
-          <ListItemText primary={"Province"} secondary={custDetails[4]} />
-          <ListItemText primary={"Country"} secondary={custDetails[6].label} />
+          {/* <ListItemText primary={"Province"} secondary={custDetails[4]} />
+          <ListItemText primary={"Country"} secondary={custDetails[6].label} /> */}
         </ListItem>
       </List>
       <Grid container spacing={2}>

@@ -4,7 +4,8 @@ import NiceTable from './NiceTable.js'
 import NiceHeader from './NiceHeader.js'
 import PopUpAddCustomer from './PopUp/PopUpAddCustomer.js'
 import AddCustomer from './AddCustomer.js'
-import PaymentCheckout from './PaymentCheckout.js'
+import PopupPayment from './PaymentPopup/PopupPayment.js'
+
 import AboutUs from './AboutUs.js'
 import './App.css'
 import { Button } from 'react-rainbow-components'
@@ -83,17 +84,16 @@ export default function App() {
         case 1:
             return <AboutUs />
             break;
-        case 2:
-            return <PaymentCheckout />
+
 
         default:
             return (
                 <div>
                     <div id='currentTable'>
-                        <NiceTable rows={rows} delCustomer={delCustomer} />
+                        {/* <NiceTable rows={rows} delCustomer={delCustomer} /> */}
                     </div>
-                    <PopUpAddCustomer addCustomer={addCustomer} />
-                    <Button label="Pay" onClick={makePayment} />
+                    {/* <PopUpAddCustomer addCustomer={addCustomer} /> */}
+                    <PopupPayment makePayment={makePayment} />
                 </div>
             )
     }
