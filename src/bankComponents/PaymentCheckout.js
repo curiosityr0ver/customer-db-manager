@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AltAddress from './AltAddress.js';
 import { useState, useEffect } from 'react';
-
+import Review from './PopUp/Review.js'
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -78,7 +78,7 @@ export default function Checkout({ addCustomer }) {
       case 0:
         return <AltAddress />;
       case 2:
-      // return <Review custDetails={custDetails} />;
+        return <Review custDetails={custDetails} />;
       default:
         throw new Error('Unknown step');
     }

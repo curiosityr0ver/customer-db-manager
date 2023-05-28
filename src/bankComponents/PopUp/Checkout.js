@@ -12,7 +12,7 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AddressForm from './AddressForm';
-import PaymentForm from '../PaymentForm';
+import AccountSelector from './AccountSelecter.js'
 import Review from './Review';
 import { useState, useEffect } from 'react';
 
@@ -80,7 +80,7 @@ export default function Checkout({ addCustomer }) {
       case 0:
         return <AddressForm custDetails={custDetails} setCustDetails={setCustDetails} />;
       case 1:
-        return <PaymentForm custDetails={custDetails} setCustDetails={setCustDetails} />;
+        return <AccountSelector custDetails={custDetails} setCustDetails={setCustDetails} />;
       case 2:
         return <Review custDetails={custDetails} />;
       default:
@@ -88,9 +88,9 @@ export default function Checkout({ addCustomer }) {
     }
   }
 
-  useEffect(() => {
-    console.log(account)
-  }, [account])
+  // useEffect(() => {
+  //   console.log(account)
+  // }, [account])
 
 
 

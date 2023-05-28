@@ -2,7 +2,7 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { Picklist, PicklistOption, DatePicker } from 'react-rainbow-components';
+import { Picklist, PicklistOption } from 'react-rainbow-components';
 import { useState } from 'react';
 
 export default function AddressForm() {

@@ -4,13 +4,14 @@ import NiceTable from './NiceTable.js'
 import NiceHeader from './NiceHeader.js'
 import PopUpAddCustomer from './PopUp/PopUpAddCustomer.js'
 import AddCustomer from './AddCustomer.js'
-import PaymentForm from './PaymentForm.js'
+import PaymentCheckout from './PaymentCheckout.js'
 import AboutUs from './AboutUs.js'
 import './App.css'
+import { Button } from 'react-rainbow-components'
 
 export default function App() {
     const [rows, setRows] = useState([])
-    const [active, setactive] = useState(2)
+    const [active, setactive] = useState(0)
 
     //REST-API
     const fetchCustomers = async () => {
@@ -57,6 +58,18 @@ export default function App() {
         }, 100);
     }
 
+    const makePayment = async (values) => {
+
+        await axios.post("http://localhost:8800/payments", values).then((response) => {
+            console.log(response.data);
+        });
+
+        // setTimeout(() => {
+        //     window.location.reload()
+        // }, 100);
+    }
+
+
     useEffect(() => {
 
         if (rows.length === 0) fetchCustomers()
@@ -71,7 +84,7 @@ export default function App() {
             return <AboutUs />
             break;
         case 2:
-            return <PaymentForm />
+            return <PaymentCheckout />
 
         default:
             return (
@@ -80,6 +93,7 @@ export default function App() {
                         <NiceTable rows={rows} delCustomer={delCustomer} />
                     </div>
                     <PopUpAddCustomer addCustomer={addCustomer} />
+                    <Button label="Pay" onClick={makePayment} />
                 </div>
             )
     }

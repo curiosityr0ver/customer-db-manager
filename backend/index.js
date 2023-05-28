@@ -42,6 +42,18 @@ app.post("/customers", (req, res) => {
     })
 })
 
+app.post("/payments", (req, res) => {
+    const q1 = "UPDATE currentac SET balance = balance - 20 where accno = 1002"
+    const q2 = "UPDATE currentac SET balance = balance + 20 where accno = 1003"
+    const values = []
+    // const body = req.body;
+    // const values = [body.accno, body.name, body.email, body.gender, body.branch, body.balance, body.rating]
+    db.query(q1, [values], (err, data) => {
+        if (err) return err
+        return res.json("successful")
+    })
+})
+
 
 app.delete("/customers:accno", (req, res) => {
     const accno = req.params.accno;
