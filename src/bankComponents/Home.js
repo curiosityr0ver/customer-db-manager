@@ -4,12 +4,13 @@ import NiceTable from './NiceTable.js'
 import NiceHeader from './NiceHeader.js'
 import PopUpAddCustomer from './PopUp/PopUpAddCustomer.js'
 import AddCustomer from './AddCustomer.js'
+import PaymentForm from './PaymentForm.js'
 import AboutUs from './AboutUs.js'
 import './App.css'
 
 export default function App() {
     const [rows, setRows] = useState([])
-    const [active, setactive] = useState(1)
+    const [active, setactive] = useState(2)
 
     //REST-API
     const fetchCustomers = async () => {
@@ -69,6 +70,8 @@ export default function App() {
         case 1:
             return <AboutUs />
             break;
+        case 2:
+            return <PaymentForm />
 
         default:
             return (

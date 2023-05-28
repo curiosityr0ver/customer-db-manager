@@ -11,9 +11,7 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import AddressForm from './AddressForm';
-import PaymentForm from '../PaymentForm';
-import Review from './Review';
+import AltAddress from './AltAddress.js';
 import { useState, useEffect } from 'react';
 
 function Copyright() {
@@ -29,7 +27,7 @@ function Copyright() {
   );
 }
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Make Paymenrt', 'Transaction Details'];
 
 
 // TODO remove, this demo shouldn't need to reset the theme.
@@ -78,11 +76,9 @@ export default function Checkout({ addCustomer }) {
   const getStepContent = (step) => {
     switch (step) {
       case 0:
-        return <AddressForm custDetails={custDetails} setCustDetails={setCustDetails} />;
-      case 1:
-        return <PaymentForm custDetails={custDetails} setCustDetails={setCustDetails} />;
+        return <AltAddress />;
       case 2:
-        return <Review custDetails={custDetails} />;
+      // return <Review custDetails={custDetails} />;
       default:
         throw new Error('Unknown step');
     }
