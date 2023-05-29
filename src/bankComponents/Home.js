@@ -21,13 +21,15 @@ export default function App() {
     }
 
     const makePayment = async (data) => {
-        const values1 = ["1004", "11"]
-        const values2 = ["1010", "11"]
+
+        const values1 = [data[0], data[2]]
+        const values2 = [data[1], data[2]]
+
         await axios.post("http://localhost:8800/increment" + values1)
         await axios.post("http://localhost:8800/decrement" + values2)
-        setTimeout(() => {
-            window.location.reload()
-        }, 100);
+        // setTimeout(() => {
+        //     window.location.reload()
+        // }, 100);
     }
     const addCustomer = async (data) => {
         console.log(data);
@@ -54,7 +56,7 @@ export default function App() {
         // const values = [2010]
         for (let value of values) {
             await axios.delete("http://localhost:8800/customers" + value).then((response) => {
-                console.log(response.data);
+                // console.log(response.data);
             });
 
         }
@@ -70,7 +72,7 @@ export default function App() {
     useEffect(() => {
 
         if (rows.length === 0) fetchCustomers()
-        console.log(rows);
+        // console.log(rows);
     }, [rows])
 
 
@@ -89,8 +91,7 @@ export default function App() {
                         <NiceTable rows={rows} delCustomer={delCustomer} />
                     </div>
                     {/* <PopUpAddCustomer addCustomer={addCustomer} /> */}
-                    <PopupPayment makePayment={makePayment} />
-                    <button onClick={makePayment}>Hrey</button>
+                    <PopupPayment rows={rows} makePayment={makePayment} />
                 </div>
             )
     }

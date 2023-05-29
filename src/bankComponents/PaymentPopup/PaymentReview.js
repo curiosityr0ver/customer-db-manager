@@ -40,8 +40,9 @@ const payments = [
   { name: 'Expiry date', detail: '04/2024' },
 ];
 
-export default function Review({ custDetails }) {
+export default function Review({ sender, receiver, status }) {
 
+  console.log(status);
 
   return (
     <React.Fragment>

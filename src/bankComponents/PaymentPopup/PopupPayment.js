@@ -7,7 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import '../App.css'
-export default function AlertDialog({ makePayment }) {
+export default function AlertDialog({ rows, makePayment }) {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -17,7 +17,7 @@ export default function AlertDialog({ makePayment }) {
     const handleClose = () => {
         setOpen(false);
     };
-
+    // console.log(rows);
     return (
         <div>
             <Button variant="outlined" onClick={handleClickOpen}>
@@ -34,7 +34,7 @@ export default function AlertDialog({ makePayment }) {
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        <PaymentCheckout makePayment={makePayment} />
+                        <PaymentCheckout rows={rows} makePayment={makePayment} onClose={handleClose} />
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>

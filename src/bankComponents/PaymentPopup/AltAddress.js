@@ -5,14 +5,7 @@ import TextField from '@mui/material/TextField';
 import { Picklist, PicklistOption } from 'react-rainbow-components';
 import { useState } from 'react';
 
-export default function AddressForm() {
-
-    const [sender, setSender] = useState()
-    const [receiver, setReceiver] = useState()
-    const [note, setNote] = useState()
-    const [mode, setMode] = useState()
-
-
+export default function AddressForm({ sender, setSender, receiver, setReceiver, amount, setAmount, note, setNote, mode, setMode }) {
 
 
     return (
@@ -66,6 +59,26 @@ export default function AddressForm() {
                                     placeholder='optional'
                                     value={note}
                                     onChange={(value) => setNote(value.target.value)}
+                                    fullWidth
+                                    autoComplete="family-name"
+                                    variant="standard"
+                                />
+                            </td>
+                            <td>
+                                <i class="fa-solid fa-envelope-open-text fa-shake fa-2xl"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <TextField
+                                    required
+                                    id="email"
+                                    name="email"
+                                    type='number'
+                                    label="Amount"
+                                    placeholder='optional'
+                                    value={amount}
+                                    onChange={(value) => setAmount(value.target.value)}
                                     fullWidth
                                     autoComplete="family-name"
                                     variant="standard"

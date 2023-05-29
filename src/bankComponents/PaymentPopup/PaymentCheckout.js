@@ -33,19 +33,57 @@ const steps = ['Make Paymenrt', 'Transaction Details'];
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Checkout({ makePayment }) {
+export default function Checkout({ rows, makePayment, onClose }) {
   const [activeStep, setActiveStep] = React.useState(0);
-  const [senderAcc, setSenderAcc] = useState();
-  const [receiverAcc, setReceiverAcc] = useState();
+  const [sender, setSender] = useState();
+  const [receiver, setReceiver] = useState();
+  const [amount, setAmount] = useState()
+  const [note, setNote] = useState()
   const [mode, setMode] = useState()
+  const [senderPresent, setSenderPresent] = useState()
+  const [receiverPresent, setReceiverPresent] = useState()
+  const [status, setStatus] = useState(0)
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
     window.scrollTo(0, 0)
+    var sdr, rcr;
+    var nb1 = 0, nb2 = 0;
 
-    if (activeStep == 2) {
-      //modify
-      (makePayment())
+    if (activeStep === 0) {
+      for (let row of rows) {
+        if (row.accno == sender) {
+          // console.log(row)
+          sdr = row
+          setSenderPresent(row);
+        }
+        if (row.accno == receiver) {
+          // console.log(row);
+          rcr = row
+
+        }
+      }
+
+      setSenderPresent(sdr)
+      setReceiverPresent(rcr)
+
+
+      if (sdr != null && rcr != null) {
+        nb1 = sdr.balance
+        nb2 = rcr.balance
+        console.log(nb1, nb2)
+        nb1 -= amount
+        nb2 -= amount * (-1)
+        if (nb1 > 0 && nb2 > 0) {
+          setStatus(1)
+        }
+      }
+    }
+
+    if (activeStep === 1) {
+      //modify              
+      // makePayment([sender, receiver, amount])    
+      onClose();
     }
   };
 
@@ -56,14 +94,13 @@ export default function Checkout({ makePayment }) {
   const getStepContent = (step) => {
     switch (step) {
       case 0:
-        return <AltAddress />;
+        return <AltAddress sender={sender} setSender={setSender} receiver={receiver} setReceiver={setReceiver} amount={amount} setAmount={setAmount} note={note} setNote={setNote} mode={mode} setMode={setMode} />;
       case 1:
-        return <PaymentReview />;
+        return <PaymentReview sender={senderPresent} receiver={receiverPresent} status={status} />;
       default:
-        throw new Error('Unknown step');
+        return <div></div>
     }
   }
-
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -86,37 +123,25 @@ export default function Checkout({ makePayment }) {
               </Step>
             ))}
           </Stepper>
-          {activeStep === steps.length ? (
-            <React.Fragment>
-              <Typography variant="h5" gutterBottom>
-                Thank you for your order.
-              </Typography>
-              <Typography variant="subtitle1">
-                Your order number is #2001539. We have emailed your order
-                confirmation, and will send you an update when your order has
-                shipped.
-              </Typography>
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              {getStepContent(activeStep)}
-              <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                {activeStep !== 0 && (
-                  <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                    Back
-                  </Button>
-                )}
 
-                <Button
-                  variant="contained"
-                  onClick={handleNext}
-                  sx={{ mt: 3, ml: 1 }}
-                >
-                  {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+          <React.Fragment>
+            {getStepContent(activeStep)}
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+              {activeStep !== 0 && (
+                <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+                  Back
                 </Button>
-              </Box>
-            </React.Fragment>
-          )}
+              )}
+
+              <Button
+                variant="contained"
+                onClick={handleNext}
+                sx={{ mt: 3, ml: 1 }}
+              >
+                {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+              </Button>
+            </Box>
+          </React.Fragment>
         </Paper>
         <Copyright />
       </Container>
