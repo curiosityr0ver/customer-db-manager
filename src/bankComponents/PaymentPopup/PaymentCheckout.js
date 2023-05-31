@@ -14,18 +14,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AltAddress from './AltAddress.js';
 import PaymentReview from './PaymentReview.js'
 import { useState, useEffect } from 'react';
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Wells Fargo
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+
 
 const steps = ['Make Paymenrt', 'Transaction Details'];
 
@@ -40,8 +29,8 @@ export default function Checkout({ rows, makePayment, onClose }) {
   const [amount, setAmount] = useState()
   const [note, setNote] = useState()
   const [mode, setMode] = useState()
-  const [senderPresent, setSenderPresent] = useState()
-  const [receiverPresent, setReceiverPresent] = useState()
+  const [senderPresent, setSenderPresent] = useState() // Account object of sender if found.
+  const [receiverPresent, setReceiverPresent] = useState() // Account object of receiver if found.
   const [status, setStatus] = useState(0)
 
   const handleNext = () => {
@@ -71,9 +60,10 @@ export default function Checkout({ rows, makePayment, onClose }) {
       if (sdr != null && rcr != null) {
         nb1 = sdr.balance
         nb2 = rcr.balance
-        console.log(nb1, nb2)
+        console.log(nb1, nb2, amount)
         nb1 -= amount
         nb2 -= amount * (-1)
+        console.log(nb1, nb2, amount)
         if (nb1 > 0 && nb2 > 0) {
           setStatus(1)
         }
@@ -82,7 +72,7 @@ export default function Checkout({ rows, makePayment, onClose }) {
 
     if (activeStep === 1) {
       //modify              
-      // makePayment([sender, receiver, amount])    
+      makePayment([sender, receiver, amount])
       onClose();
     }
   };
@@ -146,5 +136,19 @@ export default function Checkout({ rows, makePayment, onClose }) {
         <Copyright />
       </Container>
     </ThemeProvider>
+  );
+}
+
+
+function Copyright() {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://mui.com/">
+        Wells Fargo
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
   );
 }

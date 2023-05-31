@@ -52,7 +52,6 @@ export default function AddressForm({ sender, setSender, receiver, setReceiver, 
                         <tr>
                             <td>
                                 <TextField
-                                    required
                                     id="email"
                                     name="email"
                                     label="Message"

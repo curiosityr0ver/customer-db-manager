@@ -14,7 +14,49 @@ img {
     transition-duration: 0.2s;
 }
 
+.AccountPresentCard {
+    height: 80px;
+    width: 250px;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 2px;
 
+}
+
+.AmountCard {
+    margin-left: 25px;
+    height: 68px;
+    width: 110px;
+    position: relative;
+    left: 2px;
+    bottom: 4px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.AmountCard.blue {
+    background-color: #1A237E;
+    color: #C5CAE9;
+}
+
+.AccountPresentCard.blue {
+    background-color: #C5CAE9;
+    color: #1A237E;
+    border: 2px solid #1A237E;
+}
+
+.AccountPresentCard.green {
+    background-color: #F6FFDE;
+    color: #41644A;
+    border: 2px solid #41644A;
+}
+
+.AmountCard.green {
+    background-color: #41644A;
+    color: #F6FFDE;
+}
 
 .notselected {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;

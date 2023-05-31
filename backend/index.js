@@ -44,9 +44,8 @@ app.post("/customers", (req, res) => {
 
 app.post("/increment:data", (req, res) => {
     const arr = req.params.data.split(",");
-    const q = "UPDATE currentac SET balance = balance + " + arr[1] + " where accno = " + arr[0]
+    const q = `UPDATE currentac SET balance = balance + ${arr[1]} where accno = ${arr[0]}`
     const values = []
-
     db.query(q, [values], (err, data) => {
         if (err) return err
         return res.json("paid")
@@ -55,9 +54,8 @@ app.post("/increment:data", (req, res) => {
 
 app.post("/decrement:data", (req, res) => {
     const arr = req.params.data.split(",");
-    const q = "UPDATE currentac SET balance = balance - " + arr[1] + " where accno = " + arr[0]
+    const q = `UPDATE currentac SET balance = balance - ${arr[1]} where accno = ${arr[0]}`
     const values = []
-
     db.query(q, [values], (err, data) => {
         if (err) return err
         return res.json("paid")

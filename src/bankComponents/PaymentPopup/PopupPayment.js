@@ -37,15 +37,6 @@ export default function AlertDialog({ rows, makePayment }) {
                         <PaymentCheckout rows={rows} makePayment={makePayment} onClose={handleClose} />
                     </DialogContentText>
                 </DialogContent>
-                <DialogActions>
-                    <Button
-                        label="Close"
-                        variant="destructive"
-                        className="rainbow-m-around_medium"
-                        borderRadius="semi-square"
-                        onClick={handleClose}
-                    />
-                </DialogActions>
             </Dialog>
         </div>
     );

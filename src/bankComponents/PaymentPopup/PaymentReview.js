@@ -46,50 +46,40 @@ export default function Review({ sender, receiver, status }) {
 
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Account Details
-      </Typography>
-      <List disablePadding>
-        <ListItem sx={{ py: 1, px: 0 }}>
-          {/* <ListItemText primary={"Name"} secondary={custDetails[0] + " " + custDetails[1]} /> */}
-        </ListItem>
-        <ListItem sx={{ py: 1, px: 0 }}>
-          {/* <DatePicker disabled value={custDetails[3]} label="Date Of Birth" /> */}
-        </ListItem>
-        <ListItem sx={{ py: 1, px: 0 }}>
-          {/* <ListItemText primary={"Address"} secondary={custDetails[2]} /> */}
-        </ListItem>
-        <ListItem sx={{ py: 1, px: 0 }}>
-          {/* <ListItemText primary={"Province"} secondary={custDetails[4]} />
-          <ListItemText primary={"Country"} secondary={custDetails[6].label} /> */}
-        </ListItem>
-      </List>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            Shipping
-          </Typography>
-          <Typography gutterBottom>John Smith</Typography>
-          <Typography gutterBottom>{addresses.join(', ')}</Typography>
-        </Grid>
-        <Grid item container direction="column" xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            Payment details
-          </Typography>
-          <Grid container>
-            {payments.map((payment) => (
-              <React.Fragment key={payment.name}>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.name}</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.detail}</Typography>
-                </Grid>
-              </React.Fragment>
-            ))}
-          </Grid>
+          {sender && AccountPresent("blue", sender)}
+          {receiver && AccountPresent("green", receiver)}
         </Grid>
       </Grid>
     </React.Fragment>
   );
+}
+
+
+
+const AccountPresent = (theme, acc) => {
+
+  return (
+    <div className={`AccountPresentCard ${theme}`}>
+      <table>
+        <tr>
+          <td>
+            <b>{acc.name}</b>
+            <br />
+            {acc.accno}
+          </td>
+          <td>
+            <div className={`AmountCard ${theme}`}>
+              {"₹" + acc.balance}
+            </div>
+
+          </td>
+        </tr>
+      </table>
+
+
+
+    </div>
+  )
 }
