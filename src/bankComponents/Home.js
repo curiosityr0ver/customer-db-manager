@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import NiceTable from './NiceTable.js'
-import NiceHeader from './NiceHeader.js'
 import PopUpAddCustomer from './PopUp/PopUpAddCustomer.js'
-import AddCustomer from './AddCustomer.js'
 import PopupPayment from './PaymentPopup/PopupPayment.js'
 import Chalta from './StarWars/Chalta.js'
-
 import AboutUs from './AboutUs.js'
 import './App.css'
-import { Button } from 'react-rainbow-components'
 
 export default function App() {
     const [rows, setRows] = useState([])
-    const [active, setactive] = useState(0)
+    const [active, setactive] = useState(2)
 
     //REST-API
     const fetchCustomers = async () => {
