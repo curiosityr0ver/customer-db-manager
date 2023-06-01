@@ -189,7 +189,6 @@ export default function EnhancedTable(props) {
     useEffect(() => {
         if (props.rows.length !== 0 && rows.length === 0) {
             setRows(props.rows)
-            console.log(rows);
         }
     }, [props.rows, rows])
 

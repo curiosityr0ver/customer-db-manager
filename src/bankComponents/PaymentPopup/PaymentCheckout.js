@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AltAddress from './AltAddress.js';
 import PaymentReview from './PaymentReview.js'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 
 const steps = ['Make Paymenrt', 'Transaction Details'];
@@ -40,30 +40,28 @@ export default function Checkout({ rows, makePayment, onClose }) {
     var nb1 = 0, nb2 = 0;
 
     if (activeStep === 0) {
+
+      //Checking if both account no.s are present in Database or not.
       for (let row of rows) {
+        // eslint-disable-next-line eqeqeq
         if (row.accno == sender) {
-          // console.log(row)
           sdr = row
           setSenderPresent(row);
         }
+        // eslint-disable-next-line eqeqeq
         if (row.accno == receiver) {
-          // console.log(row);
           rcr = row
-
         }
       }
 
       setSenderPresent(sdr)
       setReceiverPresent(rcr)
 
-
       if (sdr != null && rcr != null) {
         nb1 = sdr.balance
         nb2 = rcr.balance
-        console.log(nb1, nb2, amount)
         nb1 -= amount
         nb2 -= amount * (-1)
-        console.log(nb1, nb2, amount)
         if (nb1 > 0 && nb2 > 0) {
           setStatus(1)
         }
@@ -73,7 +71,6 @@ export default function Checkout({ rows, makePayment, onClose }) {
     if (activeStep === 1) {
       //modify              
       makePayment([sender, receiver, amount])
-      onClose();
     }
   };
 
@@ -88,9 +85,37 @@ export default function Checkout({ rows, makePayment, onClose }) {
       case 1:
         return <PaymentReview sender={senderPresent} receiver={receiverPresent} status={status} />;
       default:
-        return <div></div>
+        return <div>
+          Transaction processed with an order ID of 9931355.
+        </div>
     }
   }
+
+
+  const pairOfButtons = () => {
+    if (activeStep < 2) {
+      return (
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+          {activeStep !== 0 && (
+            <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+              Back
+            </Button>
+          )}
+
+          <Button
+            variant="contained"
+            onClick={handleNext}
+            sx={{ mt: 3, ml: 1 }}
+          >
+            {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+          </Button>
+        </Box>
+      )
+    }
+  }
+
+
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -113,29 +138,14 @@ export default function Checkout({ rows, makePayment, onClose }) {
               </Step>
             ))}
           </Stepper>
-
           <React.Fragment>
             {getStepContent(activeStep)}
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-              {activeStep !== 0 && (
-                <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                  Back
-                </Button>
-              )}
-
-              <Button
-                variant="contained"
-                onClick={handleNext}
-                sx={{ mt: 3, ml: 1 }}
-              >
-                {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-              </Button>
-            </Box>
+            {pairOfButtons()}
           </React.Fragment>
         </Paper>
         <Copyright />
       </Container>
-    </ThemeProvider>
+    </ThemeProvider >
   );
 }
 
@@ -145,7 +155,7 @@ function Copyright() {
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Wells Fargo
+        Wells Tango
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}

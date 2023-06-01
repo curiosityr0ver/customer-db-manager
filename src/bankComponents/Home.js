@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import NiceTable from './NiceTable.js'
-import PopUpAddCustomer from './PopUp/PopUpAddCustomer.js'
-import PopupPayment from './PaymentPopup/PopupPayment.js'
+import PopUp from './PopUp/PopupUp.js'
 import Chalta from './StarWars/Chalta.js'
 import AboutUs from './AboutUs.js'
+import ZigZag from './zigzagButtons/ZigZag.js'
 import './App.css'
 
-export default function App() {
+export default function App({ active }) {
     const [rows, setRows] = useState([])
-    const [active, setactive] = useState(2)
-
     //REST-API
     const fetchCustomers = async () => {
         const res = await axios.get("http://localhost:8800/customers")
@@ -31,9 +29,6 @@ export default function App() {
         await axios.post("http://localhost:8800/decrement" + values2).then((response) => {
             console.log(response.data);
         });
-        // setTimeout(() => {
-        //     window.location.reload()
-        // }, 100);
     }
     const addCustomer = async (data) => {
         console.log(data);
@@ -83,7 +78,6 @@ export default function App() {
         //fix css file overlap
         case 1:
             return <AboutUs />
-            break;
         case 2:
             return <Chalta />
         default:
@@ -92,8 +86,8 @@ export default function App() {
                     <div id='currentTable'>
                         <NiceTable rows={rows} delCustomer={delCustomer} />
                     </div>
-                    <PopUpAddCustomer addCustomer={addCustomer} />
-                    <PopupPayment rows={rows} makePayment={makePayment} />
+                    //This is overlapping for both actions, fix that.
+                    <PopUp rows={rows} makePayment={makePayment} addCustomer={addCustomer} />
                 </div>
             )
     }

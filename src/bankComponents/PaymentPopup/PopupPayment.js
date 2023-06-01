@@ -6,6 +6,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import ZigZag from '../zigzagButtons/ZigZag';
 import '../App.css'
 export default function AlertDialog({ rows, makePayment }) {
     const [open, setOpen] = React.useState(false);
@@ -20,9 +21,14 @@ export default function AlertDialog({ rows, makePayment }) {
     // console.log(rows);
     return (
         <div>
-            <Button variant="outlined" onClick={handleClickOpen}>
+
+            {/* <Button variant="outlined" onClick={handleClickOpen}>
                 Transfer
-            </Button>
+            </Button> */}
+            <div onClick={handleClickOpen}>
+                <ZigZag />
+            </div>
+
             <Dialog
                 open={open}
                 onClose={handleClose}

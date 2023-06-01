@@ -14,7 +14,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AddressForm from './AddressForm';
 import AccountSelector from './AccountSelecter.js'
 import Review from '../PaymentPopup/PaymentReview';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function Copyright() {
   return (

@@ -23,6 +23,12 @@ img {
 
 }
 
+.pair {
+    position: absolute;
+    left: 35%;
+    bottom: 0%;
+}
+
 .AmountCard {
     margin-left: 25px;
     height: 68px;
