@@ -43,8 +43,6 @@
 
 
 .pair {
-    position: -webkit-sticky;
-    position: sticky;
-    bottom: 0;
-    height: 20px;
+    position: absolute;
+    top: 585px;
 }

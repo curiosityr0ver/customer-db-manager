@@ -1,0 +1,240 @@
+.branchImg1 {
+    --g: 4px;
+    /* the gap */
+    --b: 12px;
+    /* border thickness*/
+    --c: #709cc7;
+    /* the color */
+    height: 300px;
+    width: 450px;
+
+    box-shadow: none;
+
+
+    padding: calc(var(--g) + var(--b));
+    --_c: #0000 0 25%, var(--c) 0 50%;
+    --_g1: repeating-linear-gradient(90deg, var(--_c)) repeat-x;
+    --_g2: repeating-linear-gradient(180deg, var(--_c)) repeat-y;
+    background:
+        var(--_g1) var(--_p, 25%) 0, var(--_g2) 0 var(--_p, 125%),
+        var(--_g1) var(--_p, 125%) 100%, var(--_g2) 100% var(--_p, 25%);
+    background-size: 200% var(--b), var(--b) 200%;
+    cursor: pointer;
+    filter: grayscale(50%);
+    transition: .3s;
+}
+
+.branchImg1:hover {
+    --_p: 75%;
+    filter: grayscale(0%);
+}
+
+.branchImg2 {
+    --g: 4px;
+    /* the gap */
+    --b: 12px;
+    /* border thickness*/
+    --c: #27547b;
+    /* the color */
+    height: 300px;
+    width: 450px;
+    box-shadow: none;
+
+
+    padding: calc(var(--g) + var(--b));
+    --_c: #0000 0 25%, var(--c) 0 50%;
+    --_g1: repeating-linear-gradient(90deg, var(--_c)) repeat-x;
+    --_g2: repeating-linear-gradient(180deg, var(--_c)) repeat-y;
+    background:
+        var(--_g1) var(--_p, 25%) 0, var(--_g2) 0 var(--_p, 125%),
+        var(--_g1) var(--_p, 125%) 100%, var(--_g2) 100% var(--_p, 25%);
+    background-size: 200% var(--b), var(--b) 200%;
+    cursor: pointer;
+    filter: grayscale(50%);
+    transition: .3s;
+}
+
+.branchImg2:hover {
+    --_p: 75%;
+    filter: grayscale(0%);
+}
+
+.branchImg3 {
+    --g: 4px;
+    /* the gap */
+    --b: 12px;
+    /* border thickness*/
+    --c: #9a8970;
+    /* the color */
+    height: 300px;
+    width: 450px;
+    box-shadow: none;
+
+
+    padding: calc(var(--g) + var(--b));
+    --_c: #0000 0 25%, var(--c) 0 50%;
+    --_g1: repeating-linear-gradient(90deg, var(--_c)) repeat-x;
+    --_g2: repeating-linear-gradient(180deg, var(--_c)) repeat-y;
+    background:
+        var(--_g1) var(--_p, 25%) 0, var(--_g2) 0 var(--_p, 125%),
+        var(--_g1) var(--_p, 125%) 100%, var(--_g2) 100% var(--_p, 25%);
+    background-size: 200% var(--b), var(--b) 200%;
+    cursor: pointer;
+    filter: grayscale(50%);
+    transition: .3s;
+}
+
+.branchImg3:hover {
+    --_p: 75%;
+    filter: grayscale(0%);
+}
+
+.branchImg4 {
+    --g: 4px;
+    /* the gap */
+    --b: 12px;
+    /* border thickness*/
+    --c: #97a562;
+    /* the color */
+    height: 300px;
+    width: 450px;
+    box-shadow: none;
+
+
+    padding: calc(var(--g) + var(--b));
+    --_c: #0000 0 25%, var(--c) 0 50%;
+    --_g1: repeating-linear-gradient(90deg, var(--_c)) repeat-x;
+    --_g2: repeating-linear-gradient(180deg, var(--_c)) repeat-y;
+    background:
+        var(--_g1) var(--_p, 25%) 0, var(--_g2) 0 var(--_p, 125%),
+        var(--_g1) var(--_p, 125%) 100%, var(--_g2) 100% var(--_p, 25%);
+    background-size: 200% var(--b), var(--b) 200%;
+    cursor: pointer;
+    filter: grayscale(50%);
+    transition: .3s;
+}
+
+.branchImg4:hover {
+    --_p: 75%;
+    filter: grayscale(0%);
+}
+
+.branchImg5 {
+    --g: 4px;
+    /* the gap */
+    --b: 12px;
+    /* border thickness*/
+    --c: #5d1626;
+    /* the color */
+    height: 300px;
+    width: 450px;
+    box-shadow: none;
+
+
+    padding: calc(var(--g) + var(--b));
+    --_c: #0000 0 25%, var(--c) 0 50%;
+    --_g1: repeating-linear-gradient(90deg, var(--_c)) repeat-x;
+    --_g2: repeating-linear-gradient(180deg, var(--_c)) repeat-y;
+    background:
+        var(--_g1) var(--_p, 25%) 0, var(--_g2) 0 var(--_p, 125%),
+        var(--_g1) var(--_p, 125%) 100%, var(--_g2) 100% var(--_p, 25%);
+    background-size: 200% var(--b), var(--b) 200%;
+    cursor: pointer;
+    filter: grayscale(50%);
+    transition: .3s;
+}
+
+.branchImg5:hover {
+    --_p: 75%;
+    filter: grayscale(0%);
+}
+
+.imgDesc1 {
+    color: white;
+    position: relative;
+    bottom: 80%;
+    left: 40%;
+    display: none;
+    letter-spacing: 3px;
+    font-size: 3rem;
+    font-family: 'Anton', sans-serif;
+}
+
+.imgDesc2 {
+    color: white;
+    position: relative;
+    bottom: 80%;
+    left: 40%;
+    letter-spacing: 3px;
+    font-size: 3rem;
+    font-family: 'Anton', sans-serif;
+    display: none;
+}
+
+.imgDesc3 {
+    color: white;
+    position: relative;
+    bottom: 50%;
+    left: 30%;
+    display: none;
+    letter-spacing: 3px;
+    font-size: 3rem;
+    font-family: 'Anton', sans-serif;
+}
+
+.imgDesc4 {
+    color: white;
+    position: relative;
+    bottom: 30%;
+    left: 20%;
+    display: none;
+    letter-spacing: 3px;
+    font-size: 3rem;
+    font-family: 'Anton', sans-serif;
+}
+
+.imgDesc5 {
+    color: white;
+    position: relative;
+    bottom: 60%;
+    left: 10%;
+    display: none;
+    letter-spacing: 3px;
+    font-size: 3rem;
+    font-family: 'Anton', sans-serif;
+}
+
+.branchImg1:hover+.imgDesc1 {
+    /* font-weight: 900; */
+    z-index: 1;
+    display: block;
+}
+
+.branchImg2:hover+.imgDesc2 {
+    /* font-weight: 900; */
+    z-index: 1;
+    display: block;
+}
+
+.branchImg3:hover+.imgDesc3 {
+    /* font-weight: 900; */
+    z-index: 1;
+    display: block;
+}
+
+.branchImg4:hover+.imgDesc4 {
+    /* font-weight: 900; */
+    z-index: 1;
+    display: block;
+
+}
+
+.branchImg5:hover+.imgDesc5 {
+    /* font-weight: 900; */
+    z-index: 1;
+    display: block;
+}
+
+.sizefix {
+    height: 465px;
+}

@@ -4,6 +4,7 @@ import NiceTable from './NiceTable.js'
 import PopUp from './PopUp/PopupUp.js'
 import Chalta from './StarWars/Chalta.js'
 import AboutUs from './AboutUs.js'
+import Branch from './Branch/Branch.js'
 import './App.css'
 
 export default function App({ active }) {
@@ -79,6 +80,8 @@ export default function App({ active }) {
             return <AboutUs />
         case 2:
             return <Chalta />
+        case 3:
+            return <Branch />
         default:
             return (
                 <div>
