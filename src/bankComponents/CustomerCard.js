@@ -1,8 +1,5 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import './CustomerCard.css'
-import { CardActionArea } from '@mui/material';
 
 
 
@@ -40,8 +37,8 @@ export default function ActionAreaCard({ empid = 6, title = "Jose Leandro Torres
 
     const descriptions = [
         "Visionary leader with a passion for innovation and a commitment to creating a positive impact on the world",
-        "Software Engineer with 10+ years of experience in developing and maintaining high-traffic websites",
-        "Marketing Manager with a passion for creating engaging and effective marketing campaigns.",
+        "Software Engineer with twenty-five years of experience in developing, debugging and maintaining high-traffic websites",
+        "Marketing Manager with a passion for creating engaging and effective marketing campaigns. This includes allocating funds to marketing initiatives.",
         "Customer Service Representative with a knack for resolving customer issues quickly and efficiently.",
         "Graphic Designer with a keen eye for detail and a passion for creating beautiful and user-friendly designs.",
         "Sales Representative with a proven track record of closing deals and generating revenue.",
@@ -53,9 +50,9 @@ export default function ActionAreaCard({ empid = 6, title = "Jose Leandro Torres
             <img className='avatar' src={imgsrc[empid]} alt="" />
 
             <div className='card'>
-                <div className='height'></div>
+                <div id='height'></div>
 
-                <center>
+                <center id='aboutUsText'>
                     <h1 id='h1' className='font1'>
                         {titles[empid]}
                     </h1>

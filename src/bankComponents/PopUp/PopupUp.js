@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Button } from 'react-rainbow-components';
 import Dialog from '@mui/material/Dialog';
-import Checkout from './Checkout.js'
+import CustomerCheckout from './CustomerCheckout.js'
 import PaymentCheckout from '../PaymentPopup/PaymentCheckout.js'
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -27,7 +27,7 @@ export default function AlertDialog({ rows, makePayment, addCustomer }) {
     const whichPopup = () => {
         if (active === 1) {
             return (
-                <Checkout addCustomer={addCustomer} />
+                <CustomerCheckout addCustomer={addCustomer} />
             )
         } else if (active === 2) {
             return (

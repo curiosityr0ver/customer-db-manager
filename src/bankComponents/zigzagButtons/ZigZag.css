@@ -40,3 +40,11 @@
     --mask:
         conic-gradient(from 45deg at left, #0000, #000 1deg 89deg, #0000 90deg) 50% calc(50% - var(--z))/100% calc(2*var(--z)) repeat-y;
 }
+
+
+.pair {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    height: 20px;
+}

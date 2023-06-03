@@ -3,8 +3,6 @@ import Grid from '@mui/material/Grid';
 
 export default function Review({ sender, receiver, status }) {
 
-  // console.log(status);
-  //TODO: display something else if account no.s not found or balance insufficient
   return (
     <React.Fragment>
       <Grid container spacing={2}>
@@ -20,7 +18,6 @@ export default function Review({ sender, receiver, status }) {
 
 
 const AccountPresent = (theme, acc) => {
-
 
   return (
     <div className={`AccountPresentCard ${theme}`}>
@@ -39,9 +36,6 @@ const AccountPresent = (theme, acc) => {
           </td>
         </tr>
       </table>
-
-
-
     </div>
   )
 }

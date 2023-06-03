@@ -4,7 +4,6 @@ import NiceTable from './NiceTable.js'
 import PopUp from './PopUp/PopupUp.js'
 import Chalta from './StarWars/Chalta.js'
 import AboutUs from './AboutUs.js'
-import ZigZag from './zigzagButtons/ZigZag.js'
 import './App.css'
 
 export default function App({ active }) {
@@ -83,10 +82,7 @@ export default function App({ active }) {
         default:
             return (
                 <div>
-                    <div id='currentTable'>
-                        <NiceTable rows={rows} delCustomer={delCustomer} />
-                    </div>
-                    //This is overlapping for both actions, fix that.
+                    <NiceTable rows={rows} delCustomer={delCustomer} />
                     <PopUp rows={rows} makePayment={makePayment} addCustomer={addCustomer} />
                 </div>
             )

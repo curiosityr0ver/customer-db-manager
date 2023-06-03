@@ -2,6 +2,10 @@ body {
   background-color: #f8f9fb;
 }
 
+.height {
+  height: 100px;
+}
+
 .App {
   text-align: center;
 }

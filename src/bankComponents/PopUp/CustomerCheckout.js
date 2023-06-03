@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
@@ -13,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AddressForm from './AddressForm';
 import AccountSelector from './AccountSelecter.js'
-import Review from '../PaymentPopup/PaymentReview';
+import Review from './Review.js';
 import { useState } from 'react';
 
 function Copyright() {
@@ -29,7 +30,7 @@ function Copyright() {
   );
 }
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Customer Details', 'Account details', 'Review Your Entry'];
 
 
 // TODO remove, this demo shouldn't need to reset the theme.
@@ -82,7 +83,7 @@ export default function Checkout({ addCustomer }) {
       case 1:
         return <AccountSelector custDetails={custDetails} setCustDetails={setCustDetails} />;
       case 2:
-        return <Review custDetails={custDetails} />;
+        return <Review cust={custDetails} />;
       default:
         throw new Error('Unknown step');
     }

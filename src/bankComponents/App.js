@@ -16,11 +16,15 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import Home from './Home';
 import { useState } from 'react';
-
+import Groups2RoundedIcon from '@mui/icons-material/Groups2Rounded';
+import MapsHomeWorkRoundedIcon from '@mui/icons-material/MapsHomeWorkRounded';
+import FeedbackRoundedIcon from '@mui/icons-material/FeedbackRounded';
+import ContactPhoneRoundedIcon from '@mui/icons-material/ContactPhoneRounded';
+import DocumentScannerSharpIcon from '@mui/icons-material/DocumentScannerSharp';
+import AutoGraphSharpIcon from '@mui/icons-material/AutoGraphSharp';
+import AddLocationAltTwoToneIcon from '@mui/icons-material/AddLocationAltTwoTone';
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -123,8 +127,9 @@ export default function PersistentDrawerLeft() {
                     {['Home', 'About Us', 'Send email', 'Contact Us'].map((text, index) => (
                         <ListItem key={text} disablePadding>
                             <ListItemButton onClick={() => { setActive(index) }}>
+
                                 <ListItemIcon>
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                    {getIcon(index)}
                                 </ListItemIcon>
                                 <ListItemText primary={text} />
                             </ListItemButton>
@@ -137,7 +142,7 @@ export default function PersistentDrawerLeft() {
                         <ListItem key={text} disablePadding>
                             <ListItemButton onClick={() => { setActive(index + 4) }}>
                                 <ListItemIcon>
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                    {getIcon(index + 4)}
                                 </ListItemIcon>
                                 <ListItemText primary={text} />
                             </ListItemButton>
@@ -151,4 +156,26 @@ export default function PersistentDrawerLeft() {
             </Main>
         </Box>
     );
+}
+
+
+const getIcon = (index) => {
+    switch (index) {
+        case 0:
+            return <MapsHomeWorkRoundedIcon />
+        case 1:
+            return <Groups2RoundedIcon />
+        case 2:
+            return <FeedbackRoundedIcon />
+        case 3:
+            return <ContactPhoneRoundedIcon />
+        case 4:
+            return <DocumentScannerSharpIcon />
+        case 5:
+            return <AutoGraphSharpIcon />
+        case 6:
+            return <AddLocationAltTwoToneIcon />
+        default:
+            break;
+    }
 }

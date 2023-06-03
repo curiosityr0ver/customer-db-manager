@@ -16,7 +16,7 @@ import PaymentReview from './PaymentReview.js'
 import { useState } from 'react';
 
 
-const steps = ['Make Paymenrt', 'Transaction Details'];
+const steps = ['Make Payment', 'Transaction Details'];
 
 
 // TODO remove, this demo shouldn't need to reset the theme.

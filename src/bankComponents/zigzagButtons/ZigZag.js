@@ -4,8 +4,8 @@ export default function ({ onLeftClick, onRightClick }) {
     return (
         <div class='pair'>
             <div class="gallery">
-                <img onClick={onLeftClick} src="https://assets.codepen.io/1480814/archer.jpg" alt="Archer from Fate/Stay" />
-                <img onClick={onRightClick} src="https://assets.codepen.io/1480814/saber.jpg" alt="Saber from Fate/Stay" />
+                <img onClick={onLeftClick} src={require("../StarWars/add1.png")} alt="Archer from Fate/Stay" />
+                <img onClick={onRightClick} src={require("../StarWars/add2.png")} alt="Saber from Fate/Stay" />
             </div>
         </div>
     )

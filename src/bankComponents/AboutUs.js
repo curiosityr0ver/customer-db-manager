@@ -44,9 +44,8 @@ export default function Album() {
                         </Typography>
                     </Container>
                 </Box>
-                <Container sx={{ py: 8 }} maxWidth="md">
-                    {/* End hero unit */}
-                    <Grid container spacing={4}>
+                <Container maxWidth="md">
+                    <Grid container spacing={8}>
                         {cards.map((card, index) => (
                             <Grid item key={card} xs={12} sm={6} md={4}>
                                 <CustomerCard empid={index} />
@@ -71,6 +70,6 @@ export default function Album() {
                 <Copyright />
             </Box>
             {/* End footer */}
-        </ThemeProvider>
+        </ThemeProvider >
     );
 }
