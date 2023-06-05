@@ -85,41 +85,46 @@ export default class App extends Component {
         let { droidX, mouseX, toTheRight } = this.state;
 
         return (
-            <div className="bb8" style={{ WebkitTransform: `translateX(${droidX}px)` }}>
-                <div className={'antennas ' + (toTheRight ? 'right' : '')}
-                    style={{ WebkitTransform: `translateX(${(mouseX - droidX) / 25}px) rotateZ(${(mouseX - droidX) / 80}deg)` }}>
-                    <div className="antenna short"></div>
-                    <div className="antenna long"></div>
-                </div>
-                <div className="head"
-                    style={{ WebkitTransform: `translateX(${(mouseX - droidX) / 15}px) rotateZ(${(mouseX - droidX) / 25}deg)` }}>
-                    <div className="stripe one"></div>
-                    <div className="stripe two"></div>
-                    <div className={'eyes ' + (toTheRight ? 'right' : '')}>
-                        <div className="eye one"></div>
-                        <div className="eye two"></div>
+            <div>
+                <div className="ChaltaLine">Make your money work for you !</div>
+                <div className="bb8" style={{ WebkitTransform: `translateX(${droidX}px)` }}>
+
+                    <div className={'antennas ' + (toTheRight ? 'right' : '')}
+                        style={{ WebkitTransform: `translateX(${(mouseX - droidX) / 25}px) rotateZ(${(mouseX - droidX) / 80}deg)` }}>
+                        <div className="antenna short"></div>
+                        <div className="antenna long"></div>
                     </div>
-                    <div className={'stripe detail ' + (toTheRight ? 'right' : '')}>
-                        <div className="detail zero"></div>
-                        <div className="detail zero"></div>
-                        <div className="detail one"></div>
-                        <div className="detail two"></div>
-                        <div className="detail three"></div>
-                        <div className="detail four"></div>
-                        <div className="detail five"></div>
-                        <div className="detail five"></div>
+                    <div className="head"
+                        style={{ WebkitTransform: `translateX(${(mouseX - droidX) / 15}px) rotateZ(${(mouseX - droidX) / 25}deg)` }}>
+                        <div className="stripe one"></div>
+                        <div className="stripe two"></div>
+                        <div className={'eyes ' + (toTheRight ? 'right' : '')}>
+                            <div className="eye one"></div>
+                            <div className="eye two"></div>
+                        </div>
+                        <div className={'stripe detail ' + (toTheRight ? 'right' : '')}>
+                            <div className="detail zero"></div>
+                            <div className="detail zero"></div>
+                            <div className="detail one"></div>
+                            <div className="detail two"></div>
+                            <div className="detail three"></div>
+                            <div className="detail four"></div>
+                            <div className="detail five"></div>
+                            <div className="detail five"></div>
+                        </div>
+                        <div className="stripe three"></div>
                     </div>
-                    <div className="stripe three"></div>
+                    <div className="ball" style={{ WebkitTransform: `rotateZ(${droidX / 2}deg)` }}>
+                        <div className="lines one"></div>
+                        <div className="lines two"></div>
+                        <div className="ring one"></div>
+                        <div className="ring two"></div>
+                        <div className="ring three"></div>
+                    </div>
+                    <div className="shadow"></div>
                 </div>
-                <div className="ball" style={{ WebkitTransform: `rotateZ(${droidX / 2}deg)` }}>
-                    <div className="lines one"></div>
-                    <div className="lines two"></div>
-                    <div className="ring one"></div>
-                    <div className="ring two"></div>
-                    <div className="ring three"></div>
-                </div>
-                <div className="shadow"></div>
             </div>
+
         );
     }
 }

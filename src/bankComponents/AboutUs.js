@@ -1,8 +1,6 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import CustomerCard from './CustomerCard.js'
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -35,12 +33,11 @@ export default function Album() {
                     sx={{
                         bgcolor: 'background.paper',
                         pt: 8,
-                        pb: 6,
                     }}
                 >
-                    <Container maxWidth="md">
-                        <Typography variant="h5" align="center" color="text.secondary" paragraph>
-                            At Wells Fargo, our mission is to revolutionize the financial landscape by harnessing cutting-edge technology and create a seamless digital ecosystem that empowers individuals to take control of their financial future. We are driven by a passion for innovation, a dedication to excellence, and a vision of a world where financial services are not just accessible, but truly empowering for all.
+                    <Container maxWidth="lg">
+                        <Typography fontFamily={'Dancing Script'} variant="h4" align="center" color="text.secondary" paragraph>
+                            At Wells Fargo, our mission is to revolutionize the financial landscape by harnessing cutting-edge tech and create a seamless digital ecosystem that empowers people to take control of their finances. We are driven by a passion for innovation, a dedication to excellence, and a vision of a world where financial services are not just accessible, but truly empowering for all.
                         </Typography>
                     </Container>
                 </Box>
